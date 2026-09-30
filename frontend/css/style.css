@@ -629,3 +629,113 @@ body {
     padding: 12px;
     font-weight: 600;
 }
+/* =========================
+   Dashboard
+========================= */
+
+.dashboard-card {
+    border-radius: 14px;
+}
+
+.dashboard-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(13, 110, 253, 0.1);
+    color: #0d6efd;
+
+    font-size: 1.2rem;
+}
+
+.chart-container {
+    position: relative;
+    height: 320px;
+}
+
+.chart-container-small {
+    position: relative;
+    height: 280px;
+}
+
+.insight-item {
+    display: flex;
+    gap: 14px;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.insight-item:last-child {
+    border-bottom: none;
+}
+
+.insight-item > i {
+    font-size: 1.25rem;
+    margin-top: 2px;
+}
+
+.recommendation-box {
+    padding: 15px;
+
+    margin-bottom: 12px;
+
+    border-radius: 10px;
+
+    background: #f8f9fa;
+
+    border-left: 4px solid #0d6efd;
+}
+/* =========================
+   Upload Page
+========================= */
+
+.upload-card {
+    border-radius: 14px;
+}
+
+.upload-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(13, 110, 253, 0.1);
+    color: #0d6efd;
+
+    font-size: 1.4rem;
+}
+
+.upload-area {
+    display: block;
+
+    padding: 30px 15px;
+
+    text-align: center;
+
+    border: 2px dashed #ced4da;
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.upload-area:hover {
+    border-color: #0d6efd;
+    background: rgba(13, 110, 253, 0.03);
+}
+
+.upload-area i {
+    font-size: 2rem;
+    color: #0d6efd;
+}
