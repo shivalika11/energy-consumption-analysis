@@ -36,11 +36,12 @@
                 Welcome, User
             </span>
 
-            <a href="../index.html"
-               class="btn btn-outline-secondary btn-sm">
-                <i class="bi bi-box-arrow-right me-1"></i>
-                Logout
-            </a>
+           
+            <form action="/logout" method="POST">
+    <button type="submit" class="btn btn-outline-danger btn-sm">
+        Logout
+    </button>
+</form>
 
         </div>
 
@@ -72,7 +73,11 @@
             Upload Data
 
         </a>
-
+<a href="/pages/profile.html"
+   class="btn btn-outline-primary">
+    <i class="bi bi-building me-2"></i>
+    Business Profile
+</a>
     </div>
 
 

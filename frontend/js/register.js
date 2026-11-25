@@ -1,75 +1,59 @@
 document.addEventListener("DOMContentLoaded", () => {
-
     const registerForm = document.getElementById("registerForm");
 
-    registerForm.addEventListener("submit", async (event) => {
+    if (!registerForm) {
+        console.error("Registration form not found!");
+        return;
+    }
 
+    registerForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 
-        const fullName =
-            document.getElementById("fullName").value.trim();
+        // Get values using the IDs from register.html
+        const fullName = document.getElementById("fullName").value.trim();
+        const email = document.getElementById("registerEmail").value.trim();
+        const password = document.getElementById("registerPassword").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
 
-        const email =
-            document.getElementById("email").value.trim();
-
-        const password =
-            document.getElementById("password").value;
-
-        const confirmPassword =
-            document.getElementById("confirmPassword").value;
-
-
-        // Check passwords
+        // Check whether passwords match
         if (password !== confirmPassword) {
             alert("Passwords do not match.");
             return;
         }
 
-
         try {
-
-            const response = await fetch(
-                "http://127.0.0.1:8000/api/register",
-                {
-                    method: "POST",
-
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-
-                    body: JSON.stringify({
-                        full_name: fullName,
-                        email: email,
-                        password: password
-                    })
-                }
-            );
-
+            // Send registration data to Flask
+            const response = await fetch("/api/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    full_name: fullName,
+                    email: email,
+                    password: password
+                })
+            });
 
             const data = await response.json();
 
-
             if (!response.ok) {
-                alert("Registration failed.");
+                alert(data.message || "Registration failed.");
                 return;
             }
 
-
             alert(data.message);
-
             console.log("Server response:", data);
 
-        } catch (error) {
+            registerForm.reset();
 
+        } catch (error) {
             console.error("Registration error:", error);
 
             alert(
-                "Could not connect to the backend. " +
-                "Make sure FastAPI is running."
+                "Could not connect to Flask. " +
+                "Make sure the Flask server is running."
             );
-
         }
-
     });
-
 });

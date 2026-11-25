@@ -1,2 +1,6 @@
-fastapi
-uvicorn[standard]
+Flask
+python-dotenv
+boto3
+pandas
+numpy
+openpyxl
